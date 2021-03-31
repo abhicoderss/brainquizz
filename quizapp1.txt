@@ -1,0 +1,162 @@
+import 'package:flutter/material.dart';
+import 'dart:ui';
+int count=0;
+void main() => runApp(MaterialApp(
+  home: Home(),
+));
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('MMDU BRAIN TESTER'), centerTitle: true, backgroundColor: Colors.red[600]),
+      body: Center(
+        child: Text(
+          'Play Quiz',
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2.0,
+            color: Colors.grey[600],
+            fontFamily: 'IndieFlower',
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Home2()),
+          );
+        },
+        backgroundColor: Colors.red[600],
+        child: Text('Play'),
+      ),
+    );
+  }
+}
+
+class Home2 extends StatefulWidget {
+
+  @override
+  _Home2State createState() => _Home2State();
+}
+
+class _Home2State extends State<Home2> {
+  bool check=false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('MMDU BRAIN TESTER'), centerTitle: true, backgroundColor: Colors.red[600]),
+      body: Column(children: <Widget>[
+        Container(
+          child: Text(
+
+                'Full Form of UI is',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2.0,
+              color: Colors.grey[600],
+              fontFamily: 'IndieFlower',
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 20.0,
+        ),
+        RaisedButton(onPressed: () {
+          if(!check){
+            count++;
+            check=true;
+          }
+        }, child: Text('FALSE')),
+        SizedBox(
+          height: 20.0,
+        ),
+        RaisedButton(onPressed: () {}, child: Text('TRUE')),
+      ]),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Home3()),
+          );
+        },
+        backgroundColor: Colors.red[600],
+        child: Text('Next'),
+      ),
+    );
+  }
+}
+
+class Home3 extends StatefulWidget {
+  @override
+  _Home3State createState() => _Home3State();
+}
+
+class _Home3State extends State<Home3> {
+ bool check=false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('MMDU BRAIN TESTER'),
+        centerTitle: true,
+        backgroundColor: Colors.red[600],
+      ),
+      body: Column(children: <Widget>[
+        Container(
+          child: Text(
+            'Intel is Indian Company',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2.0,
+              color: Colors.grey[600],
+              fontFamily: 'IndieFlower',
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 20.0,
+        ),
+        RaisedButton(onPressed: () {
+    if(!check){
+    count++;
+    check=true;
+        }}, child: Text('FALSE')),
+        SizedBox(
+          height: 20.0,
+        ),
+        RaisedButton(onPressed: () {}, child: Text('TRUE')),
+      ]),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Home4()),
+          );
+        },
+        backgroundColor: Colors.red[600],
+        child: Text('Next'),
+      ),
+    );
+  }
+}
+
+class Home4 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Score'),
+      ),
+      body: Center(
+        child: Container(
+          child: Text('$count'),
+        ),
+      ),
+    );
+  }
+}
